@@ -1,0 +1,26 @@
+{
+  "forever": false,
+  "interval": 600000,
+
+  "serviceName": "faas-mark",
+
+  "repeat": 1000,
+
+  "concurrencyRepeat": 100,
+  "maxConcurrency": 800,
+  "maxConcurrencyPerInitiator": 10,
+
+  "providers": {
+    "aws": {
+      "region": "us-east-1"
+    },
+    "azure": {
+    },
+    "bluemix": {
+    },
+    "gcloud": {
+      "region": "us-central1",
+      "project": ""
+    }
+  }
+}

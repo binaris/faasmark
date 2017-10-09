@@ -1,0 +1,85 @@
+service: faas
+
+provider:
+  name: aws
+  timeout: 300
+  region: us-east-1
+  stage: mark
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - "cloudformation:DescribeStacks"
+        - "lambda:InvokeFunction"
+        - "logs:CreateLogGroup"
+        - "logs:CreateLogStream"
+        - "logs:PutLogEvents"
+      Resource: "*"
+
+functions:
+
+  empty:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: empty.empty
+
+  simpleInitiator:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: simpleInitiator.simpleInitiator
+    events:
+      - http:
+          path: simpleInitiator
+          method: get
+
+
+
+  empty-js-128:
+    runtime: nodejs6.10
+    memorySize: 128
+    handler: empty.empty
+
+  empty-js-256:
+    runtime: nodejs6.10
+    memorySize: 256
+    handler: empty.empty
+
+  empty-js-512:
+    runtime: nodejs6.10
+    memorySize: 512
+    handler: empty.empty
+
+  empty-js-1024:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: empty.empty
+    events:
+      - http:
+          path: empty-js-1024
+          method: get
+
+  empty-py-1024:
+    runtime: python2.7
+    memorySize: 1024
+    handler: empty.empty
+
+  empty-java-1024:
+    runtime: java8
+    memorySize: 1024
+    handler: Empty
+
+  aspectInitiator:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: aspectInitiator.aspectInitiator
+
+
+
+  sleeper:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: sleeper.sleeper
+
+  concurrencyInitiator:
+    runtime: nodejs6.10
+    memorySize: 1024
+    handler: concurrencyInitiator.concurrencyInitiator
