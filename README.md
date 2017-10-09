@@ -2,7 +2,7 @@
 
 FaaSMark is a benchmark for serverless compute platforms. It is designed to measure function invocation latency across different clouds and using different invocation methods and function parameters.
 
-The benchmark currently test latency under different:
+The benchmark currently tests latency under different:
 * Invocation mathods (HTTP vs SDK)
 * Programming languages
 * Memory sizes
@@ -45,7 +45,7 @@ Benchmark behavior is control by the file *settings.json* which has the followin
 | providers.gcloud.region    | String      | Google Cloud region name                                        |
 | providers.gcloud.project   | String      | Google Cloud project name                                       |
 
-Note that automatic deployment onto Azure and Bluemix is not supported yet and their settings are currently hard coded.
+Note that automatic deployment onto Azure and Bluemix is not supported yet, and that their settings are currently hard coded.
 
 ## Deployment
 
@@ -53,7 +53,8 @@ Deployment method varies between clouds.
 
 ### AWS
 
-Use the Serverless Framework (sls) to deploy functions to AWS Lambda. Your AWS credentials need to be set and `sls` installed before you can
+Use the Serverless Framework (sls) to deploy functions to AWS Lambda. Set your AWS credentials and install install `sls`.
+Now run:
 
     cd providers/aws
     sls deploy
@@ -65,7 +66,7 @@ Automatic deployment is not yet supported on Azure. To deploy on Azure Functions
     providers/azure/empty.js
     providers/azure/simpleInitiator.js
 
-Use the file name (minus the extention) as the fucntion name and configure HTTP triggers for the functions.
+Use the file name (minus the extension) as the function name and configure HTTP triggers for the functions.
 
 ### BlueMix
 
