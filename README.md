@@ -33,7 +33,7 @@ Benchmark behavior is control by the file *settings.json* which has the followin
 
 
 | Name                         | Values      | Description                                                     |                           |
-| --------------------------   | ----------- | --------------------------------------------------------------- |                           |
+|------------------------------|-------------|-----------------------------------------------------------------|
 | `forever`                    | `true`\     | `false`                                                         | Test once or loop forever |
 | `interval`                   | Number      | Milliseconds between beginning of tests                         |                           |
 | `serviceName`                | `faas-mark` | Change only if you change deployment code                       |                           |
