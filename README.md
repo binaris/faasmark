@@ -32,18 +32,18 @@ Invoke the benchmark using the command
 Benchmark behavior is control by the file *settings.json* which has the following fields:
 
 
-| Name                         | Values      | Description                                                         |
-|------------------------------|-------------|---------------------------------------------------------------------|
-| `forever`                    | `true`\|`false` | Test once or loop forever                                       |
-| `interval`                   | Number          | Milliseconds between beginning of tests                         |
-| `serviceName`                | `faas-mark`     | Change only if you change deployment code                       |
-| `repeat`                     | Number          | How many times Empty is invoked by Initiator                    |
-| `concurrencyRepeat`          | Number          | Same as repeat for concurrency (load) tests                     |
-| `maxConcurrency`             | Number          | Maximum concurrent invocations (load level)                     |
-| `maxConcurrencyPerInitiator` | Number          | Maximum concurrent invocations from a single initiator function |
-| `providers.aws.region`       | String          | AWS region name                                                 |
-| `providers.gcloud.region`    | String          | Google Cloud region name                                        |
-| `providers.gcloud.project`   | String          | Google Cloud project name                                       |
+| Name | Values | Description |
+| ---- | ------ | ----------- |
+| `forever`                    | `true`&#124;`false` | Test once or loop forever |
+| `interval`                   | Number              | Milliseconds between beginning of tests |
+| `serviceName`                | `faas-mark`         | Change only if you change deployment code |
+| `repeat`                     | Number              | How many times Empty is invoked by Initiator |
+| `concurrencyRepeat`          | Number              | Same as repeat for concurrency (load) tests |
+| `maxConcurrency`             | Number              | Maximum concurrent invocations (load level)                     |
+| `maxConcurrencyPerInitiator` | Number              | Maximum concurrent invocations from a single initiator function |
+| `providers.aws.region`       | String              | AWS region name |
+| `providers.gcloud.region`    | String              | Google Cloud region name |
+| `providers.gcloud.project`   | String              | Google Cloud project name |
 
 Note that automatic deployment onto Azure and Bluemix is not supported yet, and that their settings are currently hard coded.
 
