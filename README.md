@@ -17,7 +17,7 @@ Benchmark code is divided into three parts:
 
 0. **Client** is the code that drives the benchmark process. It can run on your local machine or any cloud VM/container.
 0. **Initiator** is a FaaS function that is deployed on the platform being benchmarked. The initiator is responsible for repeatedly invoking empty functions (see below) and measuring their invocation latencies. There are two types of initiators: `simpleInitiator` and `concurrencyInitiator`. The first is used for measuring different aspects of function invocation (method, languages and memory sizes) and comparing different cloud platforms. The second is used for load tests.
-0. **Empty** is a FaaS function that retuns immediately after invocation. This function is deployed on the FaaS platform being benchmarked. Empty is implemented is JavaScript across on platforms and in multiple languages on AWS Lamda. Concurrency tests use a more complex version of empty called `sleeper` that can sleep for a specified interval before retuning. This feature is used for *warming up* multiple functions containers before starting the benchmark itself.
+0. **Empty** is a FaaS function that retuns immediately after invocation. This function is deployed on the FaaS platform being benchmarked. Empty is implemented in JavaScript across all platforms and in multiple languages on AWS Lamda. Concurrency tests use a more complex version of empty called `sleeper` that can sleep for a specified interval before returning. This feature is used for *warming up* multiple function containers before starting the benchmark itself.
 
 Deploying both initiator and empty on the same FaaS platforms assures that no factors outside of the platform affect invocation latency.
 
@@ -34,7 +34,7 @@ Benchmark behavior is control by the file *settings.json* which has the followin
 
 | Name | Values | Description |
 | ---- | ------ | ----------- |
-| `forever`                    | `true`&#124;`false` | Test once or loop forever |
+| `forever`                    | `false`&#124;`true` | Test once or loop forever |
 | `interval`                   | Number              | Milliseconds between beginning of tests |
 | `serviceName`                | `faas-mark`         | Change only if you change deployment code |
 | `repeat`                     | Number              | How many times Empty is invoked by Initiator |
@@ -66,7 +66,7 @@ Automatic deployment is not yet supported on Azure. To deploy on Azure Functions
     providers/azure/empty.js
     providers/azure/simpleInitiator.js
 
-Use the file name (minus the extension) as the function name and configure HTTP triggers for the functions.
+Use the file name (without the extension) as the function name and configure HTTP triggers for the functions.
 
 ### BlueMix
 
