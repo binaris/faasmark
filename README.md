@@ -3,7 +3,7 @@
 FaaSMark is a benchmark for serverless compute platforms. It is designed to measure function invocation latency across different clouds and using different invocation methods and function parameters.
 
 The benchmark currently tests latency under different:
-* Invocation mathods (HTTP vs SDK)
+* Invocation methods (HTTP vs SDK)
 * Programming languages
 * Memory sizes
 * Load conditions
